@@ -1,0 +1,50 @@
+{
+	"name": "node-postcss-es8-boilerplate",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Mohammed Mulazada <thisismoniac@gmail.com>",
+	"scripts": {
+		"dev:css": "postcss --config './libs/postcss.dev.js' ./views/index.css -o ./public/styles/index.css --verbose -w",
+		"build:css": "postcss --config './postcss.config.js' ./views/index.css -o ./public/styles/index.css --verbose"
+	},
+	"license": "MIT",
+	"babel": {
+		"plugins": [
+			"transform-async-to-generator",
+			"transform-runtime"
+		]
+	},
+	"dependencies": {
+		"dotenv": "^5.0.1"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-plugin-transform-async-to-generator": "^6.24.1",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.7.0",
+		"babelify": "^8.0.0",
+		"browser-sync": "^2.24.4",
+		"browserify": "^16.2.2",
+		"cpx": "^1.5.0",
+		"css-mqpacker": "^6.0.2",
+		"cssnano": "^3.10.0",
+		"eslint": "^4.19.1",
+		"mkdirp": "^0.5.1",
+		"nodemon": "^1.17.5",
+		"onchange": "^4.0.0",
+		"parallelshell": "^3.0.2",
+		"postcss-cli": "^5.0.0",
+		"postcss-cssnext": "^3.1.0",
+		"postcss-custom-media": "^6.0.0",
+		"postcss-custom-properties": "^7.0.0",
+		"postcss-discard-comments": "^4.0.0",
+		"postcss-import": "^11.1.0",
+		"postcss-mixins": "^6.2.0",
+		"postcss-nested": "^3.0.0",
+		"postcss-preset-env": "^5.2.1",
+		"rimraf": "^2.6.2",
+		"seng-generator": "^0.7.1",
+		"uglify-js": "^3.3.27",
+		"watchify": "^3.11.0"
+	}
+}

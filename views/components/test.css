@@ -1,0 +1,33 @@
+:root {
+	--mainColor: red;
+}
+
+body {
+	background: rebeccapurple;
+	@media (--phone) {
+		background: var(--mainColor);
+	}
+	@media (min-width: 60rem) {
+		background: red;
+	}
+}
+
+h2 {
+	background: rebeccapurple;
+	@media (min-width: 40rem) {
+		background: red;
+	}
+	@media (min-width: 60rem) {
+		background: red;
+	}
+}
+
+h3 {
+	color: red;
+
+	& .kappa {
+		color: green;
+	}
+}
+
+/* test */

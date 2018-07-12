@@ -1,0 +1,1 @@
+:root{--mainColor:red}body,h2{background:#639}h3{color:red}h3 .kappa{color:green}@media (max-width:30em){body{background:red;background:var(--mainColor)}}@media (min-width:60rem){body,h2{background:red}}@media (min-width:40rem){h2{background:red}}
