@@ -6,15 +6,26 @@
 	"scripts": {
 		"postinstall": "yarn run build:dir",
 		"start": "node app.js",
-		"dev": "parallelshell \"yarn run watch:all \"",
-		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images ./template/ ./template/component ./template/component/{name_cc}",
+		"dev": "parallelshell \"yarn run watch:all \" \"yarn run build:template \"",
+		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images ./libs/template/ ./libs/template/component ./libs/template/component/{name_cc}",
+		"build:template": "parallelshell \" touch ./libs/template/component/{name_cc}/{name_cc}.css \" \" touch ./libs/template/component/{name_cc}/{name_cc}.js \" \" touch ./libs/template/component/{name_cc}/{name_cc}.ejs \"",
+		"audit:js": "onchange \"./views/**/*.js\" \"./views/*.js\" -- yarn run eslint:js",
+		"audit:css": "onchange \"./views/**/*.css\" -- yarn run correct:css",
+		"eslint:css": "stylelint ./views/**/*.css",
+		"eslint:js": "eslint ./views/**/*.js --fix",
 		"component": "sg generate component",
 		"watch:all": "parallelshell \"yarn run watch:js \" \"yarn run watch:css \" \"yarn run watch:node \"",
 		"watch:css": "postcss --config './libs/postcss.dev.js' ./views/index.css -o ./public/styles/index.css --verbose -w",
 		"watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
 		"watch:node": "nodemon app.js",
 		"build:css": "postcss --config './postcss.config.js' ./views/index.css -o ./public/styles/index.css --verbose",
-		"build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js"
+		"build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",
+		"copy:all:watch": "parallelshell \"yarn run copy:fonts -w\" \"yarn run copy:jsStatic -w\" \"yarn run copy:images -w\" \"yarn run copy:cssStatic -w\"",
+		"copy:all": "parallelshell \"yarn run copy:fonts\" \"yarn run copy:jsStatic\" \"yarn run copy:images\" \"yarn run copy:cssStatic\"",
+		"copy:fonts": "cpx \"./src/fonts/**\" ./public/fonts",
+		"copy:jsStatic": "cpx \"./src/scripts/**.js\" ./public/scripts",
+		"copy:images": "cpx \"./src/images/**\" ./public/images",
+		"copy:cssStatic": "cpx \"./src/styles/**\" ./public/styles"
 	},
 	"license": "MIT",
 	"dependencies": {
@@ -35,7 +46,7 @@
 		"cpx": "^1.5.0",
 		"css-mqpacker": "^6.0.2",
 		"cssnano": "^3.10.0",
-		"eslint": "^4.19.1",
+		"eslint": "^5.1.0",
 		"nodemon": "^1.17.5",
 		"onchange": "^4.0.0",
 		"parallelshell": "^3.0.2",
@@ -50,6 +61,7 @@
 		"postcss-preset-env": "^5.2.1",
 		"rimraf": "^2.6.2",
 		"seng-generator": "^0.7.1",
+		"stylelint": "^9.3.0",
 		"uglify-js": "^3.3.27",
 		"watchify": "^3.11.0"
 	}
