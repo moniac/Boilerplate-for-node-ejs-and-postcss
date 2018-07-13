@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require( 'express' )
 const ENV = require( 'dotenv' ).config().parsed
 const bodyParser = require( 'body-parser' )
 const app = express()
@@ -13,8 +13,8 @@ app.use( bodyParser.urlencoded( {
 app.use( bodyParser.json() )
 
 app.get( '/', ( req, res ) => {
-	res.render('index')
-})
+	res.render( 'index' )
+} )
 
 app.listen( PORT, () => {
 
