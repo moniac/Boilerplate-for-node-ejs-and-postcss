@@ -24,7 +24,6 @@ h2 {
 
 h3 {
 	color: red;
-
 	& .kappa {
 		color: green;
 	}
