@@ -4,18 +4,25 @@
 	"main": "index.js",
 	"author": "Mohammed Mulazada <thisismoniac@gmail.com>",
 	"scripts": {
-		"dev:css": "postcss --config './libs/postcss.dev.js' ./views/index.css -o ./public/styles/index.css --verbose -w",
-		"build:css": "postcss --config './postcss.config.js' ./views/index.css -o ./public/styles/index.css --verbose"
+		"postinstall": "yarn run build:dir",
+		"start": "node app.js",
+		"dev": "parallelshell \"yarn run watch:all \"",
+		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images ./template/ ./template/component ./template/component/{name_cc}",
+		"component": "sg generate component",
+		"watch:all": "parallelshell \"yarn run watch:js \" \"yarn run watch:css \" \"yarn run watch:node \"",
+		"watch:css": "postcss --config './libs/postcss.dev.js' ./views/index.css -o ./public/styles/index.css --verbose -w",
+		"watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
+		"watch:node": "nodemon app.js",
+		"build:css": "postcss --config './postcss.config.js' ./views/index.css -o ./public/styles/index.css --verbose",
+		"build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js"
 	},
 	"license": "MIT",
-	"babel": {
-		"plugins": [
-			"transform-async-to-generator",
-			"transform-runtime"
-		]
-	},
 	"dependencies": {
-		"dotenv": "^5.0.1"
+		"body-parser": "^1.18.3",
+		"dotenv": "^5.0.1",
+		"ejs": "^2.6.1",
+		"express": "^4.16.3",
+		"mkdirp": "^0.5.1"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
@@ -29,7 +36,6 @@
 		"css-mqpacker": "^6.0.2",
 		"cssnano": "^3.10.0",
 		"eslint": "^4.19.1",
-		"mkdirp": "^0.5.1",
 		"nodemon": "^1.17.5",
 		"onchange": "^4.0.0",
 		"parallelshell": "^3.0.2",

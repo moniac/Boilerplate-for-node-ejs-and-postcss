@@ -1,0 +1,4 @@
+{
+  "templatePath": "./libs/template",
+  "destination": "./views/components"
+}
