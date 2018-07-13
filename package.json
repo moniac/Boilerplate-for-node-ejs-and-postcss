@@ -6,7 +6,8 @@
 	"scripts": {
 		"postinstall": "yarn run build:dir",
 		"start": "node app.js",
-		"dev": "parallelshell \"yarn run watch:all \" \"yarn run build:template \"",
+		"build": "yarn run build:all",
+		"dev": "parallelshell \"yarn run watch:all \" \"yarn run copy:all:watch \" \"yarn run build:template \"",
 		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images ./libs/template/ ./libs/template/component ./libs/template/component/{name_cc}",
 		"build:template": "parallelshell \" touch ./libs/template/component/{name_cc}/{name_cc}.css \" \" touch ./libs/template/component/{name_cc}/{name_cc}.js \" \" touch ./libs/template/component/{name_cc}/{name_cc}.ejs \"",
 		"audit:js": "onchange \"./views/**/*.js\" \"./views/*.js\" -- yarn run eslint:js",
@@ -18,6 +19,7 @@
 		"watch:css": "postcss --config './libs/postcss.dev.js' ./views/index.css -o ./public/styles/index.css --verbose -w",
 		"watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
 		"watch:node": "nodemon app.js",
+		"build:all": "parallelshell \" yarn run build:css \" \"yarn run build:js\" \"yarn run copy:all\"",
 		"build:css": "postcss --config './postcss.config.js' ./views/index.css -o ./public/styles/index.css --verbose",
 		"build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",
 		"copy:all:watch": "parallelshell \"yarn run copy:fonts -w\" \"yarn run copy:jsStatic -w\" \"yarn run copy:images -w\" \"yarn run copy:cssStatic -w\"",
