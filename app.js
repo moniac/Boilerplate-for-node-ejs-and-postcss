@@ -12,6 +12,10 @@ app.use( bodyParser.urlencoded( {
 } ) )
 app.use( bodyParser.json() )
 
+app.get( '/', ( req, res ) => {
+	res.render('index')
+})
+
 app.listen( PORT, () => {
 
 	console.log( `Hello from http://localhost:${ PORT }` )

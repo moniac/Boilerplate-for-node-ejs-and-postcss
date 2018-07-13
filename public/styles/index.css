@@ -1,1 +1,36 @@
-:root{--mainColor:red}body,h2{background:#639}h3{color:red}h3 .kappa{color:green}@media (max-width:30em){body{background:red;background:var(--mainColor)}}@media (min-width:60rem){body,h2{background:red}}@media (min-width:40rem){h2{background:red}}
+:root {
+	--mainColor: red;
+}
+body {
+	background: rebeccapurple;
+}
+@media (max-width: 30em) {
+body {
+		background: var(--mainColor)
+}
+	}
+@media (min-width: 60rem) {
+body {
+		background: red
+}
+	}
+h2 {
+	background: rebeccapurple;
+}
+@media (min-width: 40rem) {
+h2 {
+		background: red
+}
+	}
+@media (min-width: 60rem) {
+h2 {
+		background: red
+}
+	}
+h3 {
+	color: red;
+}
+h3 .kappa {
+		color: green;
+	}
+/* test */
