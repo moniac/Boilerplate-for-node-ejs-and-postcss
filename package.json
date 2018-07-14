@@ -20,7 +20,7 @@
 		"watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
 		"watch:node": "nodemon app.js",
 		"build:all": "parallelshell \" yarn run build:css \" \"yarn run build:js\" \"yarn run copy:all\"",
-		"build:css": "postcss --config './postcss.config.js' ./views/index.css -o ./public/styles/index.css --verbose",
+		"build:css": "postcss --config './postcss.config.js' ./views/index.css  -o ./public/styles/index.css --verbose",
 		"build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",
 		"copy:all:watch": "parallelshell \"yarn run copy:fonts -w\" \"yarn run copy:jsStatic -w\" \"yarn run copy:images -w\" \"yarn run copy:cssStatic -w\"",
 		"copy:all": "parallelshell \"yarn run copy:fonts\" \"yarn run copy:jsStatic\" \"yarn run copy:images\" \"yarn run copy:cssStatic\"",
@@ -38,6 +38,7 @@
 		"mkdirp": "^0.5.1"
 	},
 	"devDependencies": {
+		"autoprefixer": "^8.6.5",
 		"babel-core": "^6.26.3",
 		"babel-plugin-transform-async-to-generator": "^6.24.1",
 		"babel-plugin-transform-runtime": "^6.23.0",

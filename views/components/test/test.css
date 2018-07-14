@@ -4,6 +4,9 @@
 
 body {
 	background: rebeccapurple;
+	display: flex;
+	display: grid;
+	font-size: 2rem;
 	@media (--phone) {
 		background: var(--mainColor);
 	}
@@ -27,6 +30,10 @@ h3 {
 	& .kappa {
 		color: green;
 	}
+}
+
+::placeholder {
+	color: gray;
 }
 
 /* test */

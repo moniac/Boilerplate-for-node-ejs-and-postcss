@@ -4,6 +4,11 @@ module.exports = {
 		require('postcss-import'),
 		require('postcss-mixins'),
 		require('postcss-nested'),
-		require('postcss-custom-media')
+		require('postcss-custom-properties'),
+		require('postcss-custom-media'),
+		require('css-mqpacker')({
+			sort: true
+		}),
+		require('autoprefixer')({grid: true, flexbox: true})
 	]
 }
