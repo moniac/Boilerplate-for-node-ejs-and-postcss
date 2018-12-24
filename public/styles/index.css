@@ -6,7 +6,6 @@ body {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	display: -ms-grid;
 	display: grid;
 	font-size: 2rem;
 }
@@ -20,6 +19,9 @@ h3 .kappa {
 		color: green;
 	}
 ::-webkit-input-placeholder {
+	color: gray;
+}
+:-ms-input-placeholder {
 	color: gray;
 }
 ::-ms-input-placeholder {
