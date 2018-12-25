@@ -3,6 +3,9 @@
 	"version": "2.0.0",
 	"main": "index.js",
 	"author": "Mohammed Mulazada <thisismoniac@gmail.com>",
+	"engines": {
+		"node": "10.14"
+	},
 	"scripts": {
 		"postinstall": "yarn run build:dir",
 		"start": "node app.js",
@@ -33,6 +36,9 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/plugin-transform-runtime": "^7.2.0",
+		"@babel/preset-env": "^7.2.3",
 		"body-parser": "^1.18.3",
 		"dotenv": "^6.2.0",
 		"ejs": "^2.6.1",
@@ -45,10 +51,7 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^9.4.3",
-		"babel-core": "^6.26.3",
 		"babel-plugin-transform-async-to-generator": "^6.24.1",
-		"babel-plugin-transform-runtime": "^6.23.0",
-		"babel-preset-env": "^1.7.0",
 		"babelify": "^10.0.0",
 		"browserify": "^16.2.2",
 		"concurrently": "^4.0.1",
