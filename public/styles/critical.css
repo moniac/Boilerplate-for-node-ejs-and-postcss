@@ -17,8 +17,7 @@ h1 {
 }
 
 hr {
-	-webkit-box-sizing: content-box;
-	        box-sizing: content-box;
+	box-sizing: content-box;
 
 	/* 1 */
 	height: 0;
@@ -219,8 +218,7 @@ fieldset {
    */
 
 legend {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 
 	/* 1 */
 	color: inherit;
@@ -263,8 +261,7 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 
 	/* 1 */
 	padding: 0;

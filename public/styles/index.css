@@ -1,10 +1,8 @@
 :root {
-	--mainColor: red;
+	--mainColor: green;
 }
 body {
 	background: rebeccapurple;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	display: grid;
 	font-size: 2rem;
@@ -33,7 +31,7 @@ h3 .kappa {
 /* test */
 @media (min-width: 30em) {
 body {
-		background: red;
+		background: green;
 		background: var(--mainColor)
 }
 	}
