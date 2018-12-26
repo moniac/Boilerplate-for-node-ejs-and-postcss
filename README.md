@@ -36,6 +36,24 @@ After cloning the repository, head to the folder and run:
 yarn install
 ```
 
+### .ENV
+
+You need to configure the .env file, otherwise the server won't have a port to run your project on. You can copy this code example and paste it in the .env file found at ```config/.env```.
+
+```
+NODE_ENV=development
+
+PORT=8004
+DEV_PORT=8000
+```
+
+Where NODE_ENV is the environment you are in (development or production)
+
+PORT the port your application will run on
+DEV_PORT the port you will develop on.
+
+Please note that the DEV_PORT is the number that you will have to add after the ```localhost:``` url.
+
 ### Development
 
 To start developing, run the command:
