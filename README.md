@@ -38,6 +38,14 @@ yarn install
 
 ### .ENV
 
+First of all, you need an .env file. We included a command that will generate an empty .env file for you in the ```config/``` folder.
+
+The command is
+
+```
+yarn run build:env
+```
+
 You need to configure the .env file, otherwise the server won't have a port to run your project on. You can copy this code example and paste it in the .env file found at ```config/.env```.
 
 ```
