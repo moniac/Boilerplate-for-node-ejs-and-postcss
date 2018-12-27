@@ -23,7 +23,7 @@
 		"watch:css": "postcss --config './config/postcss.config.js' ./app/views/*.css  -d ./public/styles/ --verbose -w",
 		"watch:js": "watchify ./app/views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
 		"watch:node": "nodemon ./app/server.js",
-		"hotreload": "yarn run livereload . --exts 'ejs, css' -d",
+		"hotreload": "yarn run livereload . --exts 'ejs, css, js' -d",
 		"build:all": "concurrently \" yarn run build:css \" \"yarn run build:js\" \"yarn run copy:all\"",
 		"build:css": "postcss --config './postcss.config.js' ./app/views/*.css  -d ./public/styles/ --verbose",
 		"build:js": "browserify ./app/views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",

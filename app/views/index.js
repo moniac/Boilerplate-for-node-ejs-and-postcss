@@ -1,6 +1,6 @@
 const a = 1
 
-class b {}
+const sum = ( a, b ) => a + b
+console.log( sum( 1, 4 ) )
 
 console.log( a )
-console.log( b )
