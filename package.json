@@ -19,7 +19,7 @@
 		"audit:ejs": "onchange $(find ./app/views/ -type f -iname '*.ejs') -- yarn run ejslint $(find ./app/views/ -type f -iname '*.ejs')",
 		"eslint:css": "stylelint --config ./config/.stylelintrc.json ./app/views/**/*.css --fix",
 		"eslint:js": "eslint -c ./config/.eslintrc.json ./app/views/**/*.js --fix",
-		"component": "sg -d ./views/components -p ./config/template generate component",
+		"component": "sg -d ./app/views/components -p ./config/template generate component",
 		"watch:all": "concurrently \"yarn run watch:js \" \"yarn run watch:css\" \"yarn run audit:css\" \"yarn run audit:js\" \"yarn run audit:ejs\" \"yarn run watch:node \"",
 		"watch:css": "postcss --config './config/postcss.config.js' ./app/views/*.css  -d ./public/styles/ --verbose -w",
 		"watch:js": "watchify ./app/views/index.js -t babelify -o ./public/scripts/index.js -v --debug",

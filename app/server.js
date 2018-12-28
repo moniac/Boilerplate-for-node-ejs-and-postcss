@@ -31,6 +31,10 @@ app.get('*', (req, res, next) => {
 		next()
 	})
 
+	if (ENV.NODE_ENV !== 'production'){
+		app.locals.environment = 'development'
+	}
+
 })
 
 app.get('/', (req, res) => {
