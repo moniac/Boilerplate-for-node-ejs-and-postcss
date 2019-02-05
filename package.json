@@ -84,7 +84,7 @@
 		"postcss-mixins": "6.2.1",
 		"postcss-nested": "4.1.1",
 		"postcss-preset-env": "6.5.0",
-		"rimraf": "2.6.2",
+		"rimraf": "2.6.3",
 		"seng-generator": "0.8.0",
 		"stylelint": "9.10.1",
 		"uglify-js": "3.4.9",
